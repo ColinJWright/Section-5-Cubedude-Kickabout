@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Section 5 Cubedude Kickabout"
+config/name="Cubedude Kickabout"
 config/icon="res://icon.png"
 
 [rendering]
