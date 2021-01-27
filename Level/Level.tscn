@@ -17,7 +17,8 @@ current = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.82052, 0 )
 
 [node name="Player1" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0, 0, 1, 0, 1, 0, -1, 0, 0, -3, 0, 0 )
+transform = Transform( -0.0254267, 0, 0.999677, 0, 1, 0, -0.999677, 0, -0.0254267, -2.73341, 0, 0 )
 
 [node name="Player2" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, 0 )
+transform = Transform( 0.142612, 0, -0.989779, 0, 1, 0, 0.989779, 0, 0.142612, 2.39319, 0, 0 )
+player_id = 2
