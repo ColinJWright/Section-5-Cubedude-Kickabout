@@ -16,21 +16,38 @@ extents = Vector3( 12, 5, 0.25 )
 [node name="Game" type="Spatial"]
 script = ExtResource( 6 )
 
+[node name="StartPositions" type="Node" parent="."]
+
+[node name="BallSpawn" type="Position3D" parent="StartPositions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.78903, 0 )
+
+[node name="Player1Start" type="Position3D" parent="StartPositions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
+
+[node name="Player2Start" type="Position3D" parent="StartPositions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
+
 [node name="Pitch" parent="." instance=ExtResource( 1 )]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.834569, 0.550904, 0, -0.550904, 0.834569, 0, 5.72567, 12.0938 )
+transform = Transform( 1, 0, 0, 0, 0.834569, 0.550904, 0, -0.550904, 0.834569, -0.144067, 7.6272, 12.8434 )
 current = true
 
-[node name="Ball" parent="." instance=ExtResource( 2 )]
+[node name="Ball" parent="." groups=[
+"game_pieces",
+] instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.82052, 0 )
 
-[node name="Player1" parent="." instance=ExtResource( 4 )]
-transform = Transform( -0.0254267, 0, 0.999677, 0, 1, 0, -0.999677, 0, -0.0254267, -2.73341, 0, 0 )
+[node name="Player1" parent="." groups=[
+"game_pieces",
+] instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -3, 0, 0 )
 collision_mask = 1
 
-[node name="Player2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.142612, 0, -0.989779, 0, 1, 0, 0.989779, 0, 0.142612, 2.39319, 0, 0 )
+[node name="Player2" parent="." groups=[
+"game_pieces",
+] instance=ExtResource( 3 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 3, 0, 0 )
 collision_mask = 1
 player_id = 2
 
@@ -110,8 +127,13 @@ collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Boundaries/RightWallInner"]
 shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 [connection signal="body_entered" from="Goals/Goal1/GoalDetector" to="." method="_on_GoalDetector_body_entered" binds= [ 2 ]]
 [connection signal="body_entered" from="Goals/Goal2/GoalDetector" to="." method="_on_GoalDetector_body_entered" binds= [ 1 ]]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="Goals/Goal1"]
 
