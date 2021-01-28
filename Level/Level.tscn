@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenery/Pitch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.227451, 0.223529, 0.717647, 1 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 12, 5, 0.25 )
 
 [node name="Level" type="Spatial"]
 
@@ -39,5 +42,71 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.37416
 
 [node name="GoalpostMesh" parent="Goals/Goal2" index="0"]
 material/0 = SubResource( 1 )
+
+[node name="Boundaries" type="Node" parent="."]
+
+[node name="BackWall" type="StaticBody" parent="Boundaries"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -8 )
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape" type="CollisionShape" parent="Boundaries/BackWall"]
+shape = SubResource( 2 )
+
+[node name="BackWallInner" type="StaticBody" parent="Boundaries"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -6 )
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Boundaries/BackWallInner"]
+shape = SubResource( 2 )
+
+[node name="FrontWall" type="StaticBody" parent="Boundaries"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 8 )
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape" type="CollisionShape" parent="Boundaries/FrontWall"]
+shape = SubResource( 2 )
+
+[node name="FrontWallInner" type="StaticBody" parent="Boundaries"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 6 )
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Boundaries/FrontWallInner"]
+shape = SubResource( 2 )
+
+[node name="LeftWall" type="StaticBody" parent="Boundaries"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -11, 5, 0 )
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape" type="CollisionShape" parent="Boundaries/LeftWall"]
+shape = SubResource( 2 )
+
+[node name="LeftWallInner" type="StaticBody" parent="Boundaries"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -10.5, 5, 0 )
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Boundaries/LeftWallInner"]
+shape = SubResource( 2 )
+
+[node name="RightWall" type="StaticBody" parent="Boundaries"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 11, 5, 0 )
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape" type="CollisionShape" parent="Boundaries/RightWall"]
+shape = SubResource( 2 )
+
+[node name="RightWallInner" type="StaticBody" parent="Boundaries"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 10.5, 5, 0 )
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Boundaries/RightWallInner"]
+shape = SubResource( 2 )
 
 [editable path="Goals/Goal2"]
