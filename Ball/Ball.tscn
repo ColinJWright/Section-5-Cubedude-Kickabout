@@ -5,7 +5,7 @@
 [sub_resource type="SpatialMaterial" id=1]
 params_diffuse_mode = 4
 params_specular_mode = 3
-albedo_color = Color( 0.0823529, 0.886275, 0.752941, 1 )
+albedo_color = Color( 0.898039, 1, 0, 1 )
 
 [sub_resource type="SphereMesh" id=2]
 material = SubResource( 1 )
