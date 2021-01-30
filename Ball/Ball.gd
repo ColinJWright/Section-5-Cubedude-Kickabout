@@ -10,6 +10,8 @@ func reset():
 	axis_lock_linear_x = false
 	axis_lock_linear_y = false
 	axis_lock_linear_z = false
+	linear_velocity = Vector3( 0, 0, 0 )
+	angular_velocity = Vector3( 0, 0, 0 )
 
 func freeze():
 	axis_lock_linear_x = true
