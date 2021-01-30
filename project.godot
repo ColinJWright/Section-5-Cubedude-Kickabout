@@ -19,6 +19,10 @@ config/name="Cubedude Kickabout"
 run/main_scene="res://Level/Level.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+BackgroundMusicPlayer="*res://Audio/BackgroundMusicPlayer.tscn"
+
 [input]
 
 up_1={

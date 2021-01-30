@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenery/Pitch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Level/Adverts.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Level/Stand.tscn" type="PackedScene" id=9]
+[ext_resource path="res://SFX/airhorn.ogg" type="AudioStream" id=10]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.227451, 0.223529, 0.717647, 1 )
@@ -168,6 +169,10 @@ transform = Transform( -1.5, 0, -1.94707e-07, 0, 0.5, 0, 5.84122e-07, 0, -0.5, 0
 
 [node name="RightStand" parent="Scenery" instance=ExtResource( 9 )]
 transform = Transform( -1.62921e-07, 0, 0.5, 0, 0.5, 0, -1, 0, -8.14603e-08, 12.8252, 0, 0.164663 )
+
+[node name="AirHorn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
 [connection signal="body_entered" from="Goals/Goal1/GoalDetector" to="." method="_on_GoalDetector_body_entered" binds= [ 2 ]]
 [connection signal="body_entered" from="Goals/Goal2/GoalDetector" to="." method="_on_GoalDetector_body_entered" binds= [ 1 ]]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
